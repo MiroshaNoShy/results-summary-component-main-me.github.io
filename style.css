@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    font-size: 18px;
+    font-family: Hanken Grotesk;
+    display: flex; /*для выравнивания карточки посередине*/
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+}
+
+.result-summary-card {
+    max-height: calc(100dvh - 20dvh);
+    /* width: 50vw; */
+    width: 600px;
+    height: auto;
+    display: flex;
+    border-radius: 25px;
+    box-shadow: 0px 10px 20px hsl(0, 0%, 80%);
+}
+
+.card-left {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 25px;
+    width: 50%;
+    height: auto;
+    padding: 32px 40px 40px;
+    background: linear-gradient(to bottom, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    max-height: calc(100dvh - 20dvh);
+}
+
+.card-left__your-result {
+    color:hsl(241, 100%, 89%);   
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+.card-left__score-wrapper-circle {
+    background: linear-gradient(to bottom, hsla(256, 72%, 46%, 1),hsla(241, 72%, 46%, 0));
+    border-radius: 50%;
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-left__score-amount {
+    color:hsl(0, 0%, 100%);  
+    font-weight: 800;
+    font-size: 3em;  
+}
+
+.card-left__score-total { 
+    font-size: 0.8em;   
+    color:hsl(241, 100%, 79%); 
+    font-weight: 700;
+}
+
+.card-left__praise {
+    font-size: 1.5em;
+    color:hsl(0, 0%, 100%); 
+    font-weight: 700;
+}
+
+.card-left__rate {
+    padding-top: 8px;
+    font-size: 0.9em;
+    color:hsl(241, 100%, 79%); 
+    font-weight: 500;
+}
+
+.card-right {
+    text-align: left;
+    padding: 32px 32px 40px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100dvh - 20dvh);
+}
+
+.card-right__summary {
+    color: hsl(224, 30%, 27%);
+    font-weight: 800;
+    font-size: 1.3em;
+}
+
+.card-right__summary-item {
+    display: flex; 
+    margin: 16px 0;
+    padding: 12px;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+.card-right__summary-item-visual {
+    background: hsla(234, 85%, 45%, 0.1);
+}
+
+.card-right__summary-item-verbal {
+    background: hsla(166, 100%, 37%, 0.1);
+}
+
+.card-right__summary-item-memory {
+    background: hsla(39, 100%, 56%, 0.1);
+}
+
+.card-right__summary-item-reaction {
+    background: hsla(0, 100%, 67%, 0.1);
+}
+
+/* Colors of score category */
+.card-right__category-visual {
+    color: hsl(234, 85%, 45%);
+}
+
+.card-right__category-verbal {
+    color: hsl(166, 100%, 37%);
+}
+
+.card-right__category-memory {
+    color: hsl(39, 100%, 56%);
+}
+
+.card-right__category-reaction {
+    color: hsl(0, 100%, 67%);
+}
+
+
+.score-left {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+}
+
+.score-right {
+    text-align: right;
+    display: flex;
+    align-items: center;
+}
+
+.score {
+    color: hsl(224, 30%, 27%);
+    font-weight: 700;
+}
+
+.score100 {
+    color:hsl(241, 100%, 79%); 
+    font-weight: 700;
+}
+
+.button {
+    border-radius: 30px;
+    border-width: 0px;
+    min-width: 100%;
+    padding: 16px;
+    color:hsl(0, 0%, 100%);  
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-top: 10px;
+    background: linear-gradient(to bottom, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+}
+
+.button:hover {
+    border-radius: 30px;
+    border-width: 0px;
+    min-width: 100%;
+    padding: 16px;
+    color:hsl(0, 0%, 100%);  
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-top: 10px;
+    background: hsl(224, 30%, 27%);
+}
+
+@media (max-width: 600px) {
+    body {
+        margin: 0;
+        font-size: 16px;
+        font-family: Hanken Grotesk;
+        position: relative;
+    }
+
+    .result-summary-card {
+        max-height: calc(100dvh - 20dvh);
+        position: absolute;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        border-radius: unset;
+        box-shadow: unset;
+        top: 0;
+        left: 0;
+    }
+
+    .card-left {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 0 0 25px 25px;
+        width: 300px;
+        height: auto;
+        padding: 32px 40px 40px;
+        background: linear-gradient(to bottom, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+        max-height: calc(100dvh - 20dvh);
+        gap: 10px;
+    }
+
+    .card-right {
+        text-align: left;
+        padding: 32px 32px 100px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        max-height: calc(100dvh - 20dvh);
+    }
+    
+}

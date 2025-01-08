@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Frontend Mentor | Results summary component</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="result-summary-card">
+    <div class="card-left bg">
+      <div class="card-left__your-result">
+        Your Result
+      </div>
+      <div class="card-left__score-wrapper-circle">
+        <div class="card-left__score-amount">
+          76
+        </div>
+        <div class="card-left__score-total">
+          of 100
+        </div>
+      </div>
+      <div class="card-left__praise">
+        Great
+      </div>
+      <div class="card-left__rate">
+        You scored higher than 65% of the people who have taken these tests.
+      </div>
+    </div>
+    <div class="card-right">
+      <div class="card-right__summary">Summary</div>
+      <div id="card-right__summary-list"></div>
+      <button class="button bg">
+        Continue
+      </button>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        const summaryList = document.getElementById('card-right__summary-list');
+
+        summaryList.innerHTML = '';
+
+        data.forEach(item => {
+          const categoryDiv = document.createElement('div');
+
+          categoryDiv.classList.add('card-right__summary-item');
+          categoryDiv.classList.add(`card-right__summary-item-${item.category.toLowerCase().replace(/\s+/g, '-')}`);
+
+          categoryDiv.innerHTML = `
+            <div class="score-left">
+            <img src="${item.icon}" />
+            <span class="card-right__category-${item.category.toLowerCase().replace(/\s+/g, '-')}">${item.category}</span>
+            </div>
+            <div class="score-right">
+            <span class="score">${item.score}&nbsp</span>
+            <span class="score100"> / 100</span>
+            </div>
+          `;
+          summaryList.appendChild(categoryDiv);
+        });
+      })
+      .catch(error => console.error('Error loading JSON:', error));
+  </script>
+
+</body>
+
+</html>
